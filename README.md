@@ -1,5 +1,5 @@
-## This sample developed to mock data in staggered view
-# This Sample uses:
+# This sample developed to mock data in staggered view
+## This Sample uses:
  1. Dagger2.0
  2. Retrofit2.0.0-beta2
  3. Picasso2.5.2

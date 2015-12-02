@@ -88,9 +88,7 @@ public class ProductsActivity extends AppCompatActivity implements ProductsAdapt
                 Log.d("test", t.toString());
                 progressBar.setVisibility(View.GONE);
                 recyclerView.setVisibility(View.VISIBLE);
-                //to remove progressbar
-                //productsAdapter.notifyDataSetChanged();
-                Toast.makeText(ProductsActivity.this, t.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ProductsActivity.this, "Please check your internet connection", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -116,7 +114,7 @@ public class ProductsActivity extends AppCompatActivity implements ProductsAdapt
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_about) {
             Intent intent = new Intent(ProductsActivity.this, AboutActivity.class);
             startActivity(intent);
             return true;
@@ -127,7 +125,7 @@ public class ProductsActivity extends AppCompatActivity implements ProductsAdapt
 
     @Override
     public void getAfterIndex(int index) {
-        //show progressbar and call request to get after index
+        //call request to get after index
         loadMore(index);
     }
 }

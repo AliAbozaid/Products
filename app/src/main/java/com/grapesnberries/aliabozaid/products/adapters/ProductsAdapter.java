@@ -117,7 +117,6 @@ public class ProductsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         imageView.setLayoutParams(params);
     }
 
-
     //holder for item row
     public class Holder extends RecyclerView.ViewHolder{
         @Bind(R.id.item_image)
