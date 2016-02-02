@@ -92,13 +92,15 @@ public class ProductsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 //check for internet connection
                 HolderProgress holderProgress = (HolderProgress) viewHolder;
                 holderProgress.progressBar.setVisibility(View.VISIBLE);
-                if(isNetworkConnected())
+
+                getAfterListner.getAfterIndex(productsItems.size());
+                /*if(isNetworkConnected())
                     getAfterListner.getAfterIndex(productsItems.size());
                 else if(flag) {
                     flag = false;
                     Toast.makeText(context, "Please check your internet connection", Toast.LENGTH_SHORT).show();
                     holderProgress.progressBar.setVisibility(View.GONE);
-                }
+                }*/
                 break;
 
 

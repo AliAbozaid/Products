@@ -24,10 +24,10 @@ import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import retrofit.Call;
-import retrofit.Callback;
-import retrofit.Response;
-import retrofit.Retrofit;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class ProductsActivity extends AppCompatActivity implements ProductsAdapter.GetAfter{
 
@@ -72,7 +72,7 @@ public class ProductsActivity extends AppCompatActivity implements ProductsAdapt
     private void loadMore(int from)
     {
         Call<ArrayList<ProductsModel>> call = productController.getProducts(BuildConfig.COUNT, from);
-        call.enqueue(new Callback<ArrayList<ProductsModel>>() {
+        /*call.enqueue(new Callback<ArrayList<ProductsModel>>() {
 
             @Override
             public void onResponse(Response<ArrayList<ProductsModel>> response, Retrofit retrofit) {
@@ -80,6 +80,27 @@ public class ProductsActivity extends AppCompatActivity implements ProductsAdapt
                 recyclerView.setVisibility(View.VISIBLE);
                 products.addAll(response.body());
                 productsAdapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                Log.d("test", t.toString());
+                progressBar.setVisibility(View.GONE);
+                recyclerView.setVisibility(View.VISIBLE);
+                Toast.makeText(ProductsActivity.this, "Please check your internet connection", Toast.LENGTH_SHORT).show();
+            }
+        });*/
+        call.enqueue(new Callback<ArrayList<ProductsModel>>() {
+            @Override
+            public void onResponse(Response<ArrayList<ProductsModel>> response) {
+                progressBar.setVisibility(View.GONE);
+                recyclerView.setVisibility(View.VISIBLE);
+                if(response.body() != null)
+                {
+                    products.addAll(response.body());
+                    productsAdapter.notifyDataSetChanged();
+                }
 
             }
 
