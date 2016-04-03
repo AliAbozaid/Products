@@ -4,8 +4,8 @@ import android.app.Application;
 import android.util.DisplayMetrics;
 
 import com.grapesnberries.aliabozaid.products.contollers.ApiComponent;
-import com.grapesnberries.aliabozaid.products.module.ApiModule;
 import com.grapesnberries.aliabozaid.products.contollers.DaggerApiComponent;
+import com.grapesnberries.aliabozaid.products.module.ApiModule;
 
 import java.io.File;
 
